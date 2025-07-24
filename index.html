@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بحر لخدمات التسويق | وكالة تسويق احترافية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap');
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f8f9fa;
+        }
+        
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1200 800'%3E%3Cdefs%3E%3CradialGradient id='a' cx='0' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23063d65'/%3E%3Cstop offset='1' stop-color='%23063d65' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='b' cx='1200' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23084a7a'/%3E%3Cstop offset='1' stop-color='%23084a7a' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='c' cx='600' cy='0' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23084a7a'/%3E%3Cstop offset='1' stop-color='%23084a7a' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='1200' height='800'/%3E%3Crect fill='url(%23b)' width='1200' height='800'/%3E%3Crect fill='url(%23c)' width='1200' height='800'/%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .gallery-item img {
+            transition: all 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            padding: 20px;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .wave-divider {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        
+        .wave-divider svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 70px;
+        }
+        
+        .wave-divider .shape-fill {
+            fill: #FFFFFF;
+        }
+    </style>
+</head>
+<body>
+    <!-- القائمة العلوية -->
+    <nav class="bg-gradient-to-r from-blue-900 to-gray-900 text-white shadow-lg sticky top-0 z-50" style="background: linear-gradient(to right, #063d65, #1f2937);">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold">
+                        <span style="color: #84b6d6;">بحر</span> لخدمات التسويق
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-8 space-x-reverse">
+                    <a href="#home" class="hover:text-blue-300 transition-colors px-3 py-2" style="--tw-text-opacity: 1; color: rgba(147, 197, 253, var(--tw-text-opacity));">الرئيسية</a>
+                    <a href="#services" class="hover:text-blue-300 transition-colors px-3 py-2" style="--tw-text-opacity: 1; color: rgba(147, 197, 253, var(--tw-text-opacity));">خدماتنا</a>
+                    <a href="#contact" class="hover:text-blue-300 transition-colors px-3 py-2" style="--tw-text-opacity: 1; color: rgba(147, 197, 253, var(--tw-text-opacity));">اتصل بنا</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- القائمة للهواتف -->
+            <div id="mobile-menu" class="md:hidden hidden pt-4 pb-2">
+                <a href="#home" class="block py-2 hover:text-blue-300 transition-colors" style="--tw-text-opacity: 1; color: rgba(147, 197, 253, var(--tw-text-opacity));">الرئيسية</a>
+                <a href="#services" class="block py-2 hover:text-blue-300 transition-colors" style="--tw-text-opacity: 1; color: rgba(147, 197, 253, var(--tw-text-opacity));">خدماتنا</a>
+                <a href="#contact" class="block py-2 hover:text-blue-300 transition-colors" style="--tw-text-opacity: 1; color: rgba(147, 197, 253, var(--tw-text-opacity));">اتصل بنا</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- قسم الترحيب -->
+    <section id="home" class="hero-section relative min-h-screen flex items-center justify-center text-white">
+        <div class="container mx-auto px-4 py-16 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6">وكالة <span style="color: #84b6d6;">بحر</span> لخدمات التسويق</h1>
+            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">نقدم لك حلولاً تسويقية متكاملة ونبني معك هوية قوية تميزك في السوق</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#contact" class="text-white font-bold py-3 px-8 rounded-full transition-colors shadow-lg" style="background-color: #063d65; border: 2px solid #063d65;">
+                    تواصل معنا
+                </a>
+            </div>
+        </div>
+        <div class="wave-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- قسم الخدمات -->
+    <section id="services" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">خدماتنا</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">نقدم مجموعة شاملة من خدمات التسويق الرقمي والهوية البصرية لتحقيق أهدافك التجارية</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- خدمة 1 -->
+                <div class="service-card bg-gradient-to-br from-blue-50 to-gray-50 rounded-xl shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <div class="w-16 h-16 text-white rounded-full flex items-center justify-center mb-6 mx-auto" style="background-color: #063d65;">
+                            <i class="fas fa-palette text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-center mb-4 text-gray-800">تصميم الهوية البصرية</h3>
+                        <p class="text-gray-600 text-center">نصمّم لك هوية متكاملة تعبّر عن جوهر علامتك وتضمن حضورًا بصريًا مميزًا.</p>
+                    </div>
+                </div>
+                
+                <!-- خدمة 2 -->
+                <div class="service-card bg-gradient-to-br from-blue-50 to-gray-50 rounded-xl shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <div class="w-16 h-16 text-white rounded-full flex items-center justify-center mb-6 mx-auto" style="background-color: #063d65;">
+                            <i class="fas fa-share-alt text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-center mb-4 text-gray-800">إدارة منصات التواصل الاجتماعي</h3>
+                        <p class="text-gray-600 text-center">نُنشئ لك حضورًا رقميًا قويًا من خلال خطة محتوى مدروسة وتفاعل احترافي مستمر.</p>
+                    </div>
+                </div>
+                
+                <!-- خدمة 3 -->
+                <div class="service-card bg-gradient-to-br from-blue-50 to-gray-50 rounded-xl shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <div class="w-16 h-16 text-white rounded-full flex items-center justify-center mb-6 mx-auto" style="background-color: #063d65;">
+                            <i class="fas fa-image text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-center mb-4 text-gray-800">تصميم منشورات السوشيال ميديا</h3>
+                        <p class="text-gray-600 text-center">نقدّم تصاميم جذابة تنقل رسالتك بوضوح وتُعبّر عن هويتك البصرية بدقة.</p>
+                    </div>
+                </div>
+                
+                <!-- خدمة 4 -->
+                <div class="service-card bg-gradient-to-br from-blue-50 to-gray-50 rounded-xl shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <div class="w-16 h-16 text-white rounded-full flex items-center justify-center mb-6 mx-auto" style="background-color: #063d65;">
+                            <i class="fas fa-video text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-center mb-4 text-gray-800">إنتاج الفيديو والمونتاج</h3>
+                        <p class="text-gray-600 text-center">نُنتج لك فيديوهات احترافية تعكس رسالتك وتجذب جمهورك بصريًا وعاطفيًا.</p>
+                    </div>
+                </div>
+                
+                <!-- خدمة 5 -->
+                <div class="service-card bg-gradient-to-br from-blue-50 to-gray-50 rounded-xl shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <div class="w-16 h-16 text-white rounded-full flex items-center justify-center mb-6 mx-auto" style="background-color: #063d65;">
+                            <i class="fas fa-pen-nib text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-center mb-4 text-gray-800">كتابة النصوص التسويقية والإعلانية</h3>
+                        <p class="text-gray-600 text-center">نكتب لك محتوى مُقنع بأسلوب احترافي يدفع جمهورك لاتخاذ القرار.</p>
+                    </div>
+                </div>
+                
+                <!-- خدمة 6 -->
+                <div class="service-card bg-gradient-to-br from-blue-50 to-gray-50 rounded-xl shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <div class="w-16 h-16 text-white rounded-full flex items-center justify-center mb-6 mx-auto" style="background-color: #063d65;">
+                            <i class="fas fa-bullhorn text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-center mb-4 text-gray-800">إدارة الحملات الإعلانية الممولة</h3>
+                        <p class="text-gray-600 text-center">نصمّم ونُدير حملاتك الإعلانية لتحقق أعلى عائد بأقل تكلفة.</p>
+                    </div>
+                </div>
+                
+                <!-- خدمة 7 -->
+                <div class="service-card bg-gradient-to-br from-blue-50 to-gray-50 rounded-xl shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <div class="w-16 h-16 text-white rounded-full flex items-center justify-center mb-6 mx-auto" style="background-color: #063d65;">
+                            <i class="fas fa-chart-line text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-center mb-4 text-gray-800">الاستشارات التسويقية</h3>
+                        <p class="text-gray-600 text-center">نرافق مشروعك بتحليل دقيق وخطط تسويقية قابلة للتنفيذ تدفعك نحو النمو.</p>
+                    </div>
+                </div>
+                
+                <!-- خدمة 8 -->
+                <div class="service-card bg-gradient-to-br from-blue-50 to-gray-50 rounded-xl shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <div class="w-16 h-16 text-white rounded-full flex items-center justify-center mb-6 mx-auto" style="background-color: #063d65;">
+                            <i class="fas fa-globe text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-center mb-4 text-gray-800">تطوير المواقع الإلكترونية</h3>
+                        <p class="text-gray-600 text-center">نبني لك موقعًا احترافيًا يعكس هويتك ويوصل رسالتك بأداء سلس وتجربة مثالية.</p>
+                    </div>
+                </div>
+                
+                <!-- خدمة 9 -->
+                <div class="service-card bg-gradient-to-br from-blue-50 to-gray-50 rounded-xl shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <div class="w-16 h-16 text-white rounded-full flex items-center justify-center mb-6 mx-auto" style="background-color: #063d65;">
+                            <i class="fas fa-mobile-alt text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-center mb-4 text-gray-800">تطوير تطبيقات Flutter</h3>
+                        <p class="text-gray-600 text-center">نطوّر لك تطبيقًا مرنًا وعصريًا يعمل بكفاءة على جميع المنصات.</p>
+                    </div>
+                </div>
+                
+                <!-- خدمة 10 -->
+                <div class="service-card bg-gradient-to-br from-blue-50 to-gray-50 rounded-xl shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <div class="w-16 h-16 text-white rounded-full flex items-center justify-center mb-6 mx-auto" style="background-color: #063d65;">
+                            <i class="fas fa-chalkboard-teacher text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-center mb-4 text-gray-800">تصوير المحاضرات التعليمية</h3>
+                        <p class="text-gray-600 text-center">نوثّق محاضراتك التعليمية باحتراف سواء على شاشة ذكية أو عادية، لنقدّم محتوى واضح، تفاعلي، وسهل التوزيع.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الاتصال -->
+    <section id="contact" class="py-16 text-white" style="background: linear-gradient(to bottom, #063d65, #1f2937);">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">تواصل معنا</h2>
+                <p class="text-xl max-w-3xl mx-auto">نحن هنا للإجابة على استفساراتك وتلبية احتياجاتك في مجال التسويق الرقمي</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- معلومات الاتصال -->
+                <div class="bg-white bg-opacity-10 p-8 rounded-xl backdrop-blur-sm">
+                    <h3 class="text-2xl font-bold mb-6" style="color: #93c5fd;">معلومات الاتصال</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="rounded-full p-3 mr-4" style="background-color: #063d65;">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg" style="color: #93c5fd;">العنوان</h4>
+                                <p>بغداد، الحرية الأولى، شارع الجنابيز</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="rounded-full p-3 mr-4" style="background-color: #063d65;">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg" style="color: #93c5fd;">الهاتف</h4>
+                                <p dir="ltr">+964 771 051 4343</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="rounded-full p-3 mr-4" style="background-color: #063d65;">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg" style="color: #93c5fd;">البريد الإلكتروني</h4>
+                                <p>info@bahragency.com</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-bold text-lg mb-4" style="color: #93c5fd;">تابعنا على</h4>
+                        <div class="flex space-x-4 space-x-reverse">
+                            <a href="https://www.facebook.com/profile.php?id=61567280551071" target="_blank" class="w-10 h-10 rounded-full flex items-center justify-center transition-colors" style="background-color: #063d65;">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/bahr_agency/" target="_blank" class="w-10 h-10 rounded-full flex items-center justify-center transition-colors" style="background-color: #063d65;">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/bahr-agency/" target="_blank" class="w-10 h-10 rounded-full flex items-center justify-center transition-colors" style="background-color: #063d65;">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- رابط النموذج الخارجي -->
+                <div class="bg-white bg-opacity-10 p-8 rounded-xl backdrop-blur-sm flex flex-col items-center justify-center text-center">
+                    <div class="w-20 h-20 text-white rounded-full flex items-center justify-center mb-6 mx-auto" style="background-color: #063d65;">
+                        <i class="fas fa-edit text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-6" style="color: #93c5fd;">تواصل معنا الآن</h3>
+                    <p class="text-lg mb-8 text-gray-200">املئ النموذج التالي وسنتواصل معك في أقرب وقت ممكن</p>
+                    <a href="https://forms.gle/KYJ81Z1pedfJ3xrG8" target="_blank" class="w-full text-white font-bold py-4 px-8 rounded-lg transition-colors shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform duration-300 text-center block" style="background-color: #063d65;">
+                        <i class="fas fa-external-link-alt ml-2"></i>
+                        املئ النموذج
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer class="bg-gray-900 text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4"><span style="color: #84b6d6;">بحر</span> لخدمات التسويق</h3>
+                    <p class="mb-6">نقدم لك حلولاً تسويقية متكاملة ونبني معك هوية قوية تميزك في السوق</p>
+                    <div class="flex space-x-4 space-x-reverse">
+                        <a href="https://www.facebook.com/profile.php?id=61567280551071" target="_blank" class="text-gray-400 transition-colors" style="color: #84b6d6;">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/bahr_agency/" target="_blank" class="text-gray-400 transition-colors" style="color: #84b6d6;">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/bahr-agency/" target="_blank" class="text-gray-400 transition-colors" style="color: #84b6d6;">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">روابط سريعة</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 transition-colors" style="color: #84b6d6;">الرئيسية</a></li>
+                        <li><a href="#services" class="text-gray-400 transition-colors" style="color: #84b6d6;">خدماتنا</a></li>
+                        <li><a href="#contact" class="text-gray-400 transition-colors" style="color: #84b6d6;">اتصل بنا</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-10 pt-6 text-center">
+                <p>&copy; 2023 وكالة بحر لخدمات التسويق. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // تبديل القائمة للهواتف
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // فلترة معرض الأعمال
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // إزالة الكلاس النشط من جميع الأزرار
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                    btn.style.backgroundColor = '#e5e7eb';
+                    btn.style.color = '#1f2937';
+                });
+                
+                // إضافة الكلاس النشط للزر المضغوط
+                this.classList.add('active');
+                this.style.backgroundColor = '#063d65';
+                this.style.color = '#ffffff';
+                
+                const filter = this.getAttribute('data-filter');
+                
+                // فلترة العناصر
+                document.querySelectorAll('.gallery-item').forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9643f8bce3f7dd2f',t:'MTc1MzM2NTkxOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
+              
